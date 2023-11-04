@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 19:47:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/19 19:47:26 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/03 19:29:50 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/03 19:29:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_printf(char const *, ...)
+#include "ft_printf.h"
+
+
+#include <stdio.h>
+#include <limits.h>
+
+//int ft_print_number
+
+
+
+int main (void)
 {
-
+    printf("%i", 0.6);
+    return 0;
 }
-
