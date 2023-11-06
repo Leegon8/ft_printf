@@ -26,7 +26,7 @@ int     ft_printf(char const *, ...);
 
 int 	print_char(int c);
 void	print_string(char *str, int *count);
-void	print_number(int number, int *count);
+int	    print_number(int number, int *count);
 void	print_pointer(unsigned long pointer, int *count);
 void	print_hexa(int n, int *count, char c);
 void	print_unsigned(unsigned int u, int *count);

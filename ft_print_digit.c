@@ -11,17 +11,22 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
-#include <stdio.h>
-#include <limits.h>
-
-//int ft_print_number
-
-
-
-int main (void)
+#include <unistd.h>
+//#include <stdio.h>
+//#include <limits.h>
+int	print_number(int n)
 {
-    printf("%i", 0.6);
-    return 0;
+	if (n == -2147483648)
+	{
+		print_string("-2147483648");
+		return ;
+	}
+	if (n < 0)
+	{
+		print_char('-');
+		print_string(ft_itoa(n));
+	}
+	else if (n > 9)
+		print_string(ft_itoa(n));
+	return (ft_atoi(n));
 }
