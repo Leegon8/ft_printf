@@ -6,12 +6,8 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:47:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/19 19:47:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:47:45 by lauriago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_printf(char const *, ...)
-{
-
-}
-
+int	ft_printf(char const *, ...);

@@ -6,31 +6,32 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:43:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/28 16:43:34 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/12 19:09:52 by lauriago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <unistd.h>
 
 int	print_char(int c)
 {
 	return (write (1, &c, 1));
 }
 
-/*Devuelve un valor de tipo `int` para indicar la cantidad de caracteres que se han impreso en la consola. 
-Para realizar un seguimiento del flujo del programa o realizar acciones basadas en la cantidad de caracteres escritos. 
-Ej: medir cantidad de espacios de memoria que reservar para imprimir la string*/
 int	print_string(char *str)
 {
 	int	count;
- 
+
 	count = 0;
-	while(*str)
+	while (*str)
 	{
-		print_char((int *)str);
+		if (print_char(*str) == -1)
+			return (-1);
 		count++;
 		str++;
 	}
+	if (count > *str)
+		return (count);
 	if (!*str)
 	{
 		if ((write (1, "(null)", 6)) != 6)
