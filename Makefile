@@ -6,7 +6,7 @@
 #    By: lauriago <lauriago@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 17:31:48 by lauriago          #+#    #+#              #
-#    Updated: 2023/11/07 17:32:00 by lauriago         ###   ########.fr        #
+#    Updated: 2023/11/12 20:34:42 by lauriago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 NAME = libftprintf.a 
 HEADER = ft_printf.h
 
-SRCS =  ft_print_digit.c ft_print_char.c \
+SRCS =  ft_print_char.c ft_print_digit.c ft_print_hex.c ft_print_ptr.c \
+		ft_printf.c ft_unsigned.c \
 	
 
 OBJS = $(SRCS:.c=.o)
