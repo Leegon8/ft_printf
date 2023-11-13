@@ -1,11 +1,52 @@
 # ft_printf
-El objetivo de este proyecto consiste en reprogramar la funcion printf() de lla libc. Teniendo que implementar ls siguientes conversiones:<br>
-• %c Imprime un solo carácter.<br>
-• %s Imprime una string (como se define por defecto en C).<br>
-• %p El puntero void * dado como argumento se imprime en formato hexadecimal.<br>
-• %d Imprime un número decimal (base 10).<br>
-• %i Imprime un entero en base 10.<br>
-• %u Imprime un número decimal (base 10) sin signo.<br>
-• %x Imprime un número hexadecimal (base 16) en minúsculas.<br>
-• %X Imprime un número hexadecimal (base 16) en mayúsculas.<br>
-• % % para imprimir el símbolo del porcentaje.<br>
+The objective of this project is to recreate the printf function, implementing the followings conversions:<br><br>
+  <table>  
+    <thead>
+        <tr>
+            <th colspan=3><h4>Specifiers</h4></th>
+        </tr>
+        <tr>
+            <th>Format Specifier</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+	</thead>
+        <tr>
+            <td align="center">%</td>
+            <td>% Followed by another % character writes % to the screen.</td>
+        </tr>
+        <tr>
+            <td align="center">c</td>
+            <td>Writes a single character.</td>
+        </tr>
+        <tr>
+            <td align="center">s</td>
+            <td>Writes a character string.</td>
+        </tr>
+        <tr>
+            <td align="center">p</td>
+            <td>Writes an implementation-defined character sequence defining a pointer address.</td>
+        </tr>
+        <tr>
+            <td align="center">d / i</td>
+            <td>Writes a signed integer to decimal representation.</td>
+        </tr>
+        <tr>
+            <td align="center">u</td>
+            <td>Writes an unsigned integer to decimal representation.</td>
+        </tr>
+        <tr>
+            <td align="center">x / X</td>
+            <td>Writes an unsigned integer to hexadecimal representation.</td>
+        </tr>
+    </tbody>
+  </table>
+</table>
+
+## Status
+Finished: 13/11/2023
+
+--
+
+Made by: lauriago, lauriago@student.42.fr    |     Website: www.laurianegnr.com
