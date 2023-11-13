@@ -49,4 +49,4 @@ Finished: 13/11/2023
 
 --
 
-Made by: lauriago, lauriago@student.42.fr    |     Website: www.laurianegnr.com
+Made by: lauriago, lauriago@student.42barcel    |     Website: www.laurianegnr.com
