@@ -12,47 +12,43 @@
 
 #include "ft_printf.h"
 
-static void	ft_args(va_list args, char c)
+int	ft_args(va_list args, char c)
 {
+	int	count;
+
+	count = 0;
 	if (c == 'c')
-		print_char(va_args(args, int));
+		count += print_char(va_arg(args, int));
 	if (c == 's')
-		print_string(va_args(args, char *));
+		count += print_string(va_arg(args, char *));
 	if (c == 'p')
-		print_ptr(va_args(args, unsigned long), count);
+		count += print_ptr(va_arg(args, unsigned long), &count);
 	if (c == 'd' || c == 'i')
-		print_number(va_args(args, int));
+		count += print_number(va_arg(args, int));
 	if (c == 'u')
-		print_unsigned(va_args(args, unsigned int));
+		count += print_unsigned(va_arg(args, unsigned int));
 	if (c == 'x' || c == 'X')
-		print_hex(va_args(args, int), count, c);
+		count += print_hex(va_arg(args, int), count, c);
 	if (c == '%')
-		print_char('%');
+		count += print_char('%');
+	return (count);
 }
 
 int	ft_printf(char const *str, ...)
 {
 	va_list		args;
-	size_t		i;
-	int			length;
+	int			count;
 
-	i = 0;
-	length = 0;
 	va_start(args, str);
-	while (str[i] && str[i + 1])
+	count = 0;
+	while (str && count != -1)
 	{
-		if (str[i] == '%')
-		{
-			i++;
-			ft_args(str[i], args);
-			i++;
-		}
+		if (*str == '%')
+			count += ft_args(args, *(++str));
 		else
-		{
-			print_char(str[i]);
-			i++;
-		}
+			count += write(1, str, 1);
+		count++;
 	}
 	va_end(args);
-	return (length);
+	return (count);
 }

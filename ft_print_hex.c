@@ -11,30 +11,31 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-#include <unistd.h>
 
-void	print_hex(int n, int *count, char c)
+int	print_hex(int n, int count, char c)
 {
 	unsigned int	num;
+	int				count2;
 	char			*hex_min;
 	char			*hex_may;
 
 	hex_min = "0123456789abcdef";
 	hex_may = "0123456789ABCDEF";
 	num = (unsigned int)n;
-	if (num >= 16 && *count != -1)
+	count2 = 0;
+	if (num >= 16 && count != -1)
 		print_hex(num / 16, count, c);
 	if (c == 'x')
 	{
-		if (*count != -1 && print_char(hex_min[num % 16]) == -1)
-			*count = -1;
+		if (count != -1 && print_char(hex_min[num % 16]) == -1)
+			count = -1;
 	}
 	if (c == 'X')
 	{
-		if (*count != -1 && print_char(hex_may[num % 16]) == -1)
-			*count = -1;
+		if (count != -1 && print_char(hex_may[num % 16]) == -1)
+			count = -1;
 	}
+	return (count2);
 }
 /*
 int main() 

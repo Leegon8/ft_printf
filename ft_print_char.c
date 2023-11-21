@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
 int	print_char(int c)
 {
-	return (write (1, &c, 1));
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (1);
 }
 
 int	print_string(char *str)

@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
-unsigned int	print_unsigned(unsigned int n)
+int	print_unsigned(unsigned int n)
 {
-	unsigned int	count;
+	int	count;
 
 	count = 0;
 	if (n > 9)
 	{
-		count = ft_unsigned(n / 10);
-		if (count == -1)
+		count = print_unsigned(n / 10);
+		if (count != 1)
 			return (-1);
 		n = n % 10;
 	}

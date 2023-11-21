@@ -11,39 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
- 
-#include <stdio.h>
-#include <unistd.h>
-
-int	print_char(int c)
-{
-	return (write(1, &c, 1));
-}
-
-int	print_string(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		if (print_char(*str) == -1)
-			return (-1);
-		count++;
-		str++;
-	}
-	if (count > *str)
-		return (count);
-	if (!*str)
-	{
-		if ((write (1, "(null)", 6)) != 6)
-			return (-1);
-		return (6);
-	}
-	return (count);
-}
-*/
 
 static void	ft_print_ptr(unsigned long ptr, int *count)
 {
@@ -58,7 +25,7 @@ static void	ft_print_ptr(unsigned long ptr, int *count)
 	}
 }
 
-void	print_ptr(unsigned long ptr, int *count)
+int	print_ptr(unsigned long ptr, int *count)
 {
 	int	temp_count;
 
@@ -67,6 +34,7 @@ void	print_ptr(unsigned long ptr, int *count)
 	temp_count += 2;
 	ft_print_ptr(ptr, &temp_count);
 	*count += temp_count;
+	return (temp_count);
 }
 /*
 int main()
