@@ -11,31 +11,35 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	print_hex(int n, int count, char c)
+static int	ft_toupper(int x)
 {
-	unsigned int	num;
-	int				count2;
-	char			*hex_min;
-	char			*hex_may;
+	if (x >= 'a' && x <= 'z')
+		return (x - 'a' + 'A');
+	return (x);
+}
 
-	hex_min = "0123456789abcdef";
-	hex_may = "0123456789ABCDEF";
-	num = (unsigned int)n;
-	count2 = 0;
-	if (num >= 16 && count != -1)
-		print_hex(num / 16, count, c);
-	if (c == 'x')
+int	ft_puthex(unsigned long n, int uppercase)
+{
+	int		count;
+	int		tmp;
+	char	hex_char;
+
+	count = 0;
+	if (n > 15)
 	{
-		if (count != -1 && print_char(hex_min[num % 16]) == -1)
-			count = -1;
+		tmp = ft_puthex(n / 16, uppercase);
+		if (tmp == -1)
+			return (-1);
+		count += tmp;
 	}
-	if (c == 'X')
-	{
-		if (count != -1 && print_char(hex_may[num % 16]) == -1)
-			count = -1;
-	}
-	return (count2);
+	hex_char = "0123456789abcdef"[n % 16];
+	if (uppercase)
+		hex_char = ft_toupper(hex_char);
+	if (ft_putchar(hex_char) == -1)
+		return (-1);
+	return (++count);
 }
 /*
 int main() 
@@ -44,7 +48,7 @@ int main()
     int count = 0;    // Inicializamos el contador a 0
 
     printf("HEXADECIMAL EN MINUSCULAS: \n");
-    print_hex(number, &count, 'x');
+    print_hex(number, count, 'x');
     printf("\n");
     printf("FUNCION ORIGINAL: %x\n", number);
 
@@ -53,7 +57,7 @@ int main()
 
     printf("---------------------------------\n");
 	printf("HEXADECIMAL EN MAYUSCULAS: \n");
-    print_hex(number, &count, 'X');
+    print_hex(number, count, 'X');
     printf("\n");
     printf("FUNCION ORIGINAL: %X\n", number);
 

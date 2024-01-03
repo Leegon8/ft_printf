@@ -12,32 +12,9 @@
 
 #include "ft_printf.h"
 
-int	print_char(int c)
+int	ft_putchar(const char c)
 {
 	if (write(1, &c, 1) != 1)
 		return (-1);
 	return (1);
-}
-
-int	print_string(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		if (print_char(*str) == -1)
-			return (-1);
-		count++;
-		str++;
-	}
-	if (count > *str)
-		return (count);
-	if (!*str)
-	{
-		if ((write (1, "(null)", 6)) != 6)
-			return (-1);
-		return (6);
-	}
-	return (count);
 }

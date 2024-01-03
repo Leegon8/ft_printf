@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lauriago <lauriago@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:08:54 by lauriago          #+#    #+#             */
-/*   Updated: 2023/11/09 13:10:41 by lauriago         ###   ########.fr       */
+/*   Created: 2023/11/12 19:42:33 by lauriago          #+#    #+#             */
+/*   Updated: 2023/11/12 20:29:40 by lauriago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	print_unsigned(unsigned int n)
+int	ft_putnbr(int num)
 {
 	int	count;
+	int	temp;
 
 	count = 0;
-	if (n > 9)
+	if (num < 0)
 	{
-		count = print_unsigned(n / 10);
-		if (count != 1)
+		if (ft_putchar('-') == -1)
 			return (-1);
-		n = n % 10;
-	}
-	if (n <= 9)
-	{
-		if (print_char((n + '0')) != 1)
-			return (-1);
+		num = -num;
 		count++;
 	}
+	temp = ft_putunbr(num);
+	if (temp == -1)
+		return (-1);
+	count += temp;
 	return (count);
 }
+/*
+int main(void)
+{
+	int num = 999;
+	ft_putnbr(num);
+	printf("\n%d", num);
+	return (0);
+}*/

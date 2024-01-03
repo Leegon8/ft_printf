@@ -12,40 +12,52 @@
 
 #NAME & HEADER#
 
+# Output file name 
 NAME = libftprintf.a 
+
+# Header file
 HEADER = ft_printf.h
 
-SRCS =  ft_print_char.c ft_print_digit.c ft_print_hex.c ft_print_ptr.c \
-		ft_printf.c ft_unsigned.c \
-	
+# List of mandatory source files
+SRCS =  ft_printf.c ft_putchar.c ft_puthex.c ft_putnbr.c ft_putstr.c ft_putunbr.c
 
+# Generate a list of objects from source files
 OBJS = $(SRCS:.c=.o)
 
 #VARIABLES#
 
 AR = ar rcs
 RM = rm -f
-CCFLAGS = -Wall -Wextra -Werror -g
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 #TARGETS#
 
-%.o: %.c $(HEADER)
-	cc $(CCFLAGS) -c $< -o $@
-
-all: $(NAME)
-
+# Rule to build the library
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
+# Rule to build object files
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Default rule
+all: $(NAME)
+
 #CLEAN#
+
+# Rule to clean object files
 clean: 
 	$(RM) $(OBJS)
 
+# Rule to clean object files and the library
 fclean: clean
 	$(RM) $(NAME)
 
 #RE-MAKE#
+
+# Rule to recompile everything from scratch
 re: fclean all
 
+# Indicates that "all", "clean", "fclean", "re" are not file names
 .PHONY: all clean fclean re
-

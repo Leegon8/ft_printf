@@ -20,11 +20,10 @@
 # include <stddef.h>
 
 int	ft_printf(char const *str, ...);
-int	print_char(int c);
-int	print_string(char *str);
-int	print_ptr(unsigned long ptr, int *count);
-int	print_number(int n);
-int	print_unsigned(unsigned int n);
-int	print_hex(int n, int count, char c);
+int	ft_putchar(const char c);
+int	ft_putstr(const char *str);
+int	ft_putnbr(int num);
+int	ft_putunbr(unsigned int n);
+int	ft_puthex(unsigned long n, int uppercase);
 
 #endif
