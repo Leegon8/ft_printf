@@ -2,7 +2,7 @@
 <<<<<<< HEAD
 =======
 
->>>>>>> 8ba4de7 (update)
+
 The objective of this project is to recreate the printf function, implementing the followings conversions:<br><br>
   <table>  
     <thead>
@@ -53,4 +53,4 @@ Finished: 13/11/2023
 
 --
 
-Made by: lauriago, lauriago@student.42barcel    |     Website: www.laurianegnr.com
+Made by: lauriago, lauriago@student.42barcelona.com    |     Website: www.laurianegnr.com
