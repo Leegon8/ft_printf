@@ -32,8 +32,10 @@ static int	ft_args(const char *ptr, va_list args)
 		count = ft_putnbr(va_arg(args, int));
 	if (*ptr == 'u')
 		count = ft_putunbr(va_arg(args, unsigned int));
-	if (*ptr == 'x' || *ptr == 'X')
-		count = ft_puthex(va_arg(args, int), count);
+	if (*ptr == 'x')
+		count = ft_puthex(va_arg(args, unsigned int), 0);
+	if (*ptr == 'X')
+		count = ft_puthex(va_arg(args, unsigned int), 1);
 	if (*ptr == '%')
 		count = ft_putchar('%');
 	return (count);
