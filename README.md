@@ -45,6 +45,17 @@ The objective of this project is to recreate the printf function, implementing t
   </table>
 </table>
 
+## Usage
+
+`make` builds `libftprintf.a`, a static library, not an executable. To see the results, compile the library with the test program in `main_test.c`:
+
+```sh
+make
+gcc -Wall -Wextra -Werror main_test.c libftprintf.a && ./a.out
+```
+
+The test prints the output of `printf` and `ft_printf` so you can compare them.
+
 ## Status
 Finished: 13/11/2023
 
