@@ -1,7 +1,4 @@
 # ft_printf
-<<<<<<< HEAD
-=======
-
 
 The objective of this project is to recreate the printf function, implementing the followings conversions:<br><br>
   <table>  
@@ -53,4 +50,4 @@ Finished: 13/11/2023
 
 --
 
-Made by: lauriago, lauriago@student.42barcelona.com    |     Website: www.laurianegnr.com
+Made by: lauriago, lauriago@student.42barcelona.com
