@@ -1,49 +1,32 @@
 # ft_printf
 
-The objective of this project is to recreate the printf function, implementing the followings conversions:<br><br>
-  <table>  
-    <thead>
-        <tr>
-            <th colspan=3><h4>Specifiers</h4></th>
-        </tr>
-        <tr>
-            <th>Format Specifier</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-	</thead>
-        <tr>
-            <td align="center">%</td>
-            <td>% Followed by another % character writes % to the screen.</td>
-        </tr>
-        <tr>
-            <td align="center">c</td>
-            <td>Writes a single character.</td>
-        </tr>
-        <tr>
-            <td align="center">s</td>
-            <td>Writes a character string.</td>
-        </tr>
-        <tr>
-            <td align="center">p</td>
-            <td>Writes an implementation-defined character sequence defining a pointer address.</td>
-        </tr>
-        <tr>
-            <td align="center">d / i</td>
-            <td>Writes a signed integer to decimal representation.</td>
-        </tr>
-        <tr>
-            <td align="center">u</td>
-            <td>Writes an unsigned integer to decimal representation.</td>
-        </tr>
-        <tr>
-            <td align="center">x / X</td>
-            <td>Writes an unsigned integer to hexadecimal representation.</td>
-        </tr>
-    </tbody>
-  </table>
-</table>
+A reimplementation of the C `printf` function, built as a static library for the 42 curriculum.
+
+## Prototype
+
+```c
+int ft_printf(const char *format, ...);
+```
+
+Returns the number of characters written, or `-1` if a write fails.
+
+## Supported conversions
+
+| Specifier | Output |
+| --- | --- |
+| `%c` | A single character |
+| `%s` | A string |
+| `%p` | A pointer address in hexadecimal |
+| `%d`, `%i` | A signed decimal integer |
+| `%u` | An unsigned decimal integer |
+| `%x`, `%X` | An unsigned hexadecimal integer, in lowercase or uppercase |
+| `%%` | A percent sign |
+
+Flags, field width and precision are not supported.
+
+## How it works
+
+`ft_printf` walks through the format string and writes each character as it goes. When it finds a `%`, it reads the next argument with `va_arg` and passes it to the matching helper function. Each helper returns how many characters it wrote, which gives the total.
 
 ## Usage
 
@@ -56,9 +39,17 @@ gcc -Wall -Wextra -Werror main_test.c libftprintf.a && ./a.out
 
 The test prints the output of `printf` and `ft_printf` so you can compare them.
 
-## Status
-Finished: 13/11/2023
+To use the library in your own project, include `ft_printf.h` and link it when compiling:
 
---
+```sh
+gcc main.c -L. -lftprintf
+```
 
-Made by: lauriago, lauriago@student.42barcelona.com
+## Makefile rules
+
+| Rule | Action |
+| --- | --- |
+| `make` | Builds the library |
+| `make clean` | Removes the object files |
+| `make fclean` | Removes the object files and the library |
+| `make re` | Rebuilds everything from scratch |
